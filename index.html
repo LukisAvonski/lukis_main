@@ -3,22 +3,74 @@
 <head>
     <title>Coruscant Guard</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+        
         body {
-            background-color: darkred;
+            background-color: rgb(77, 0, 0);
             margin: 0;
             padding: 0;
         }
         
-        #coruscant-guard {
-            position: fixed;
-            top: 10px;
-            right: 2000px;
+        .buttonCG {
+            background-color: rgb(77, 0, 0); 
+            border: none;
+            color: white;
+            padding: 16px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 30px;
+            margin: 10px 15px;
+            transition-duration: 0.5s;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        .button1 {
+            background-color: rgb(194, 0, 0); 
+            color: rgb(255, 255, 255); 
+        }
+        
+        .button1:hover {
+            background-color: rgb(36, 0, 0);
+            color: white;
+        }
+
+        #welcome-message {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             color: rgb(255, 255, 255);
-            font-size: 24px;
+            font-size: 60px;
+            font-family: 'Bebas Neue', sans-serif;
+            text-align: center;
+            transition: top 2s;
+            opacity: 0; /* Dodano styl, aby napis był niewidoczny */
+        }
+
+        .hide-message {
+            top: -1000%;
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const button = document.querySelector('.buttonCG');
+            const welcomeMessage = document.querySelector('#welcome-message');
+
+            button.addEventListener('click', function() {
+                welcomeMessage.style.opacity = '1'; /* Zmiana opacity na 1 po kliknięciu */
+                welcomeMessage.style.top = '10%';
+                setTimeout(function() {
+                    welcomeMessage.classList.add('hide-message');
+                }, 5000);
+            });
+        });
+    </script>
 </head>
 <body>
-    <div id="coruscant-guard">Coruscant guard</div>
+    <button class="buttonCG button1">Gwardia Coruscant</button>
+    <div id="welcome-message">Witamy na głównej stronie Gwardii Coruscant</div>
 </body>
 </html>
